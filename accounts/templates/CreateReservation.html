@@ -1,0 +1,144 @@
+<!doctype html>
+{% extends "Base.html" %}
+
+{% load static %}
+{% load myfilters %}
+
+
+
+
+{% block title %}Add Reservation{% endblock title %}
+
+
+{% block content %}
+            <!--begin::Header-->
+            <div id="kt_header" class="header">
+                <!--begin::Container-->
+                <div class="container-fluid d-flex align-items-center flex-wrap justify-content-between" id="kt_header_container">
+                    <!--begin::Page title-->
+                    <div class="page-title d-flex flex-column align-items-start justify-content-center flex-wrap me-2 pb-5 pb-lg-0 pt-7 pt-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', lg: '#kt_header_container'}">
+                        <!--begin::Heading-->
+                        <h1 style="font-size:35px;" class="d-flex flex-column text-dark fw-bolder ">Reserve Room</h1>
+                        <!--end::Heading-->
+                    </div>
+                    <!--end::Page title=-->
+                    <!--begin::Wrapper-->
+                    <div class="d-flex d-lg-none align-items-center ms-n3 me-2">
+                        <!--begin::کناری mobile toggle-->
+                        <div class="btn btn-icon btn-active-icon-primary" id="kt_aside_toggle">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+                            <span class="svg-icon svg-icon-1 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z" fill="currentColor" />
+                                        <path opacity="0.3" d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z" fill="currentColor" />
+                                    </svg>
+                                </span>
+                            <!--end::Svg Icon-->
+                        </div>
+                        <!--end::کناری mobile toggle-->
+                        <!--begin::Logo-->
+                        <a href="#" class="d-flex align-items-center">
+                            <img alt="Logo" src="{% static 'hotel1/public/common-assets/images/logo.png' %}" class="h-30px" />
+                        </a>
+                        <!--end::Logo-->
+                    </div>
+                    <!--end::Wrapper-->
+                    <!--begin::بالاbar-->
+                    <div class="d-flex align-items-center flex-shrink-0">
+                    </div>
+                    <!--end::بالاbar-->
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Header-->
+
+			
+			
+            <!--begin::Content-->
+            <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                <!--begin::Container-->
+                <div class="container-fluid" id="kt_content_container">
+                    <form method="POST" class="post-form" enctype="multipart/form-data">		
+					{% csrf_token %}
+                        <div class="row">
+                            <div class="col form-box">
+                                <div class="d-flex">
+                                    <div class="form-group col">
+                                        <label for="fname">First Name</label>
+						{{form.first_name.errors}}
+                            			{{ form.first_name|addclass:'form-control' }}
+                                    </div>
+                                    <div class="form-group col mx-8">
+                                        <label for="lname">Last Name</label>
+					{{form.last_name.errors}}
+                            		{{ form.last_name|addclass:'form-control' }}
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="mobile">Phone Number</label>
+					{{form.phone_number.errors}}                            		
+					{{form.phone_number|addclass:'form-control'}}
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col">
+                                        <label for="start_date">Login Date</label>
+					{{form.login_date.errors}}
+                            		{{form.login_date|addclass:'form-control'}}
+                                    </div>
+                                    <div class="form-group col mx-8">
+                                        <label for="end_date">Logout Date</label>
+						{{form.logout_date.errors}}
+  						{{ form.logout_date|addclass:'form-control' }}
+  						</div>
+
+									 <div class="form-group col ">
+                                        <label for="count">Count</label>
+						{{form.number.errors}}
+						{{form.number}}
+                                    </div>
+                                   <div class="form-group col mx-8">
+                                        <label for="gender">Gender</label>
+						{{form.gender.errors}}
+						{{form.gender}}
+                                    </div>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="form-group col">
+                                        <label for="email">Email</label>
+						{{form.email.errors}}
+						{{form.email}}
+
+                                    </div>
+                                   <div class="form-group col mx-8">
+                                        <label for="address">Address</label>
+						{{form.address.errors}}
+						{{ form.address|addclass:'form-control' }}
+
+                                    </div>
+                                    
+									 <div class="form-group col">
+                                        <label for="type_room">Room Type</label>
+						{{form.room_type.errors}}
+						{{form.room_type}}
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+						
+						{{form.details}}
+
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-12">
+                                <a href="{% url 'createreserve' %}" class="btn btn-secondary form-btn me-3">Return</a>
+                                <button type="submit" class="btn form-btn">Reserve</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Content-->
+
+{% endblock content %}

@@ -1,0 +1,381 @@
+<!doctype html>
+{% load static %}
+{% load myfilters %}
+
+<html>
+<head>
+	{% load bootstrap5 %}
+
+	{% bootstrap_css %}
+
+	{% bootstrap_javascript %}
+
+	{% bootstrap_messages %}
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'layout.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'hotel1/public/admin-panel/assets/plugins/custom/datatables/datatables.bundle.css' %}" >
+	<link rel="stylesheet" type="text/css" href="{% static 'hotel1/public/admin-panel/assets/plugins/global/plugins.bundle.rtl.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'hotel1/public/admin-panel/assets/css/style.bundle.rtl.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'hotel1/public/admin-panel/assets/css/persian-datepicker.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" ></script>
+
+
+
+
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock title %}</title>
+	
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="{% static 'static/hotel1/public/admin-panel/assets/media/logos/favicon.ico' %}"/>
+    <!--begin::Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+    <!--end::Fonts-->
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".input-date").pDatepicker({
+                initialValue: false,
+                format: 'YYYY/MM/DD',
+            });
+        });
+    </script>
+	
+	
+	
+</head>
+
+
+<!--begin::Body-->
+<body id="kt_body">
+<!--begin::Main-->
+<!--begin::Root-->
+	
+<div class="d-flex flex-column flex-root">
+    <!--begin::Page-->
+    <div class="page d-flex flex-row flex-column-fluid">
+
+
+		
+		<!--begin::کناری-->
+
+        <div id="kt_aside" class="aside pt-7 pb-4 pb-lg-7 pt-lg-4" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_toggle">
+							
+			<div><span class="d-flex justify-content-end flex-shrink-0 fw-bolder text-dark" style="float: right; color: rgba(168,41,43,1.00)">
+				<a href="{% url 'register' %}" 	target="_blank">&nbsp Sign up</a>
+							<a href="{% url 'login' %}" target="_blank" style="color:rgba(168,41,43,1.00)"> &nbsp Sign in &nbsp &nbsp </a>
+							</span>
+							<br>
+						</div>
+
+			<!--begin::Brو-->
+            <div class="aside-logo flex-column-auto px-9 mb-9 mb-lg-10 mx-auto pb-lg-3 pt-lg-10" id="kt_aside_logo">
+                <!--begin::Logo-->
+                <a href="#">
+                    <img alt="Logo" src="{% static 'hotel1/public/common-assets/images/logo.png' %}" class="h-40px logo" />
+                </a>
+                <!--end::Logo-->
+            </div>
+            <!--end::Brو-->
+            <!--begin::کناری menu-->
+            <div class="aside-menu flex-column-fluid ps-3 ps-lg-5 pe-1 mb-6" id="kt_aside_menu">
+                <!--begin::کناری Menu-->
+                <div class="w-100 hover-scroll-overlay-y pe-2 me-2" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_user, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper" data-kt-scroll-offset="0">
+                    <!--begin::Menu-->
+                    <div class="menu menu-column menu-rounded fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+                        
+						
+						<div class="menu-item">
+                            <a class="menu-link" href="{% url 'home' %}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                                <span class="menu-title">Home</span>
+                            </a>
+                        </div>
+						
+						
+						 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Reservations</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                            <div class="menu-sub menu-sub-accordion">
+                                <div class="menu-item">
+                                    <a class="menu-link" href="{% url 'createreserve' %}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Add Reservation</span>
+                                    </a>
+                                </div>
+                                
+                                <div class="menu-item">
+                                    <a class="menu-link" href="{% url 'listreserve' %}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">List Reservation</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+						
+						
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Rooms</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                            <div class="menu-sub menu-sub-accordion">
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Room Type</span>
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">List of Rooms</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="#">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                                <span class="menu-title">Reports</span>
+                            </a>
+                        </div>
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Customers</span>
+                    </span>
+                        </div>
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Managers</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                            <div class="menu-sub menu-sub-accordion">
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Roles</span>
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Manager's list</span>
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a class="menu-link" href="#">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Talk to managers</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+						
+						
+						
+						 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="currentColor" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="currentColor" />
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title">Settings</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                            <div class="menu-sub menu-sub-accordion">
+                                <div class="menu-item">
+                                    <a class="menu-link" href="{% url 'changepassword' %}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                        <span class="menu-title">Change Password</span>
+                                    </a>
+                                </div>
+                                
+                            </div>
+						</div>						
+						
+						
+                    </div>
+                    <!--end::Menu-->
+                </div>
+                <!--end::کناری Menu-->
+            </div>
+            <!--end::کناری menu-->
+            <!--begin::Footer-->
+            <div class="aside-footer flex-column-auto px-6 px-lg-9" id="kt_aside_footer">
+                <!--begin::کاربر panel-->
+                <div class="d-flex flex-stack ms-7">
+                    <form action="{% url 'home' %}" >
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-icon btn-active-color-primary btn-icon-gray-600 btn-text-gray-600">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr076.svg-->
+                            <span class="svg-icon svg-icon-1 me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.3" width="12" height="2" rx="1" transform="matrix(-1 0 0 1 15.5 11)" fill="currentColor" />
+                            <path d="M13.6313 11.6927L11.8756 10.2297C11.4054 9.83785 11.3732 9.12683 11.806 8.69401C12.1957 8.3043 12.8216 8.28591 13.2336 8.65206L16.1592 11.2526C16.6067 11.6504 16.6067 12.3496 16.1592 12.7474L13.2336 15.3479C12.8216 15.7141 12.1957 15.6957 11.806 15.306C11.3732 14.8732 11.4054 14.1621 11.8756 13.7703L13.6313 12.3073C13.8232 12.1474 13.8232 11.8526 13.6313 11.6927Z" fill="currentColor" />
+                            <path d="M8 5V6C8 6.55228 8.44772 7 9 7C9.55228 7 10 6.55228 10 6C10 5.44772 10.4477 5 11 5H18C18.5523 5 19 5.44772 19 6V18C19 18.5523 18.5523 19 18 19H11C10.4477 19 10 18.5523 10 18C10 17.4477 9.55228 17 9 17C8.44772 17 8 17.4477 8 18V19C8 20.1046 8.89543 21 10 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3H10C8.89543 3 8 3.89543 8 5Z" fill="#C4C4C4" />
+                        </svg>
+                    </span>
+                            <!--end::Svg Icon-->
+                            <!--begin::Major-->
+			<span class="d-flex flex-shrink-0 fw-bolder"><a href="{% url 'logout' %}">Exit Panel</a></span>
+                            <!--end::Major-->
+                        </button>
+                        <!--end::Link-->
+                    </form>
+                </div>
+                <!--end::کاربر panel-->
+            </div>
+            <!--end::Footer-->
+        </div>
+        <!--end::کناری-->
+
+    <!--begin::Wrapper-->
+        <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+           
+
+			
+			
+<!--begin::Content-->
+			{% block content %}
+			{% endblock content %}
+<!--end::Content-->
+			
+			
+			
+			
+            <!--begin::Footer-->
+            <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                <!--begin::Container-->
+                <div class="container-fluid d-flex flex-column flex-md-row flex-stack">
+                    <!--begin::Copyright-->
+                    <div class="text-dark order-2 order-md-1">
+                        <a href="{% url 'home' %}" target="_blank" class="text-muted text-hover-primary fw-bold me-2 fs-6">Dad Hotel</a>
+                    </div>
+                    <!--end::Copyright-->
+                </div>
+                <!--end::Container-->
+            </div>
+            <!--end::Footer-->
+        </div>
+        <!--end::Wrapper-->
+    </div>
+    <!--end::Page-->
+</div>
+<!--end::Root-->
+	
+	
+
+	
+
+
+
+<!--begin::Javascript-->
+<script>var hostUrl = "assets/";</script>
+<!--begin::Global Javascript Bundle(used by all pages)-->
+<script src="{% static 'hotel1/public/admin-panel/assets/plugins/global/plugins.bundle.js' %}"></script>
+<script src="{% static 'hotel1/public/admin-panel/assets/js/scripts.bundle.js' %}"></script>
+<!--end::Global Javascript Bundle-->
+<!--begin::Page Vendors Javascript(used by this page)-->
+<script src="{% static 'hotel1/public/admin-panel/assets/plugins/custom/datatables/datatables.bundle.js' %}"></script>
+<!--end::Page Vendors Javascript-->
+<!--begin::Page سفارشی Javascript(used by this page)-->
+<script src="{% static 'hotel1/public/admin-panel/assets/js/custom/apps/ecommerce/catalog/categories.js' %}"></script>
+<script src="{% static 'hotel1/public/admin-panel/assets/js/widgets.bundle.js' %}"></script>
+<script src="{% static 'hotel1/public/admin-panel/assets/js/custom/widgets.js' %}"></script>
+<script src="{% static 'hotel1/public/admin-panel/assets/js/custom/apps/chat/chat.js' %}"></script>
+<script src="{% static 'hotel1/public/admin-panel/assets/js/custom/modals/users-search.js' %}"></script>
+
+<script src="https://unpkg.com/persian-date@1.1.0/dist/persian-date.min.js"></script>
+<script src="https://unpkg.com/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+
+<!--end::Page custom Javascript-->
+<!--end::Javascript-->
+
+
+</body>
+<!--end::Body-->
+</html>

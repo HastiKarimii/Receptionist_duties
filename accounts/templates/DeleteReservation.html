@@ -1,0 +1,22 @@
+<!doctype html>
+{% extends "ListReservation.html" %}
+{% load static %}
+{% load myfilters %}
+
+
+{% block title %}Delete Reservation{% endblock title %}
+{% block content %}
+	<div class="center">
+	<form method="post" class="card">
+		{% csrf_token %}
+		<h2>Delete Reservation</h2>
+		<p>Are you sure that you want to delete "{{reserve}}"?</p>
+		<p class="form-buttons">
+			<input type="submit" class="btn btn-primary" value="Delete">
+			<a href="{% url 'listreserve'%}" class="btn btn-outline">Cancel</a>
+		</p>
+	</form>
+</div>
+{% endblock content %}
+
+
