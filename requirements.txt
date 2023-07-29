@@ -1,12 +1,16 @@
+annotated-types==0.5.0
 asgiref==3.7.2
 beautifulsoup4==4.12.2
 Django==4.2.3
+django-bootstrap-datepicker-plus==5.0.4
 django-bootstrap-v5==1.0.11
 django-crispy-forms==2.0
 django-extensions==3.2.3
 django-intl-tel-input==0.3.1
 django-phonenumber-field==7.1.0
 phonenumbers==8.13.17
+pydantic==2.1.1
+pydantic_core==2.4.0
 six==1.16.0
 soupsieve==2.4.1
 sqlparse==0.4.4
