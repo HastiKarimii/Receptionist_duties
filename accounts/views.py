@@ -75,7 +75,7 @@ def activateEmail(request, user, to_email):
 
 class RegisterView(CreateView):
     form_class = ReceptionistCreationForm
-    template_name = 'register.html'
+    template_name = 'Register.html'
     success_url = reverse_lazy('login')
     success_message = "Your profile was created successfully"
 
@@ -127,7 +127,7 @@ def login_view(request):
 
 
     form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form, 'title': 'login'})
+    return render(request, 'Login.html', {'form': form, 'title': 'login'})
 
 
 

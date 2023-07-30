@@ -22,8 +22,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('register/', RegisterView.as_view(), name='register'),
     path('logout/', logout_view, name='logout'),
-    path('changepassword/', CustomPasswordChangeView.as_view(),name='changepassword'),
-    path('activate/<uidb64>/<token>', activate , name='activate'),
+    path('changepassword/', CustomPasswordChangeView.as_view(), name='changepassword'),
+    path('activate/<uidb64>/<token>', activate, name='activate'),
     path('resetpassword/', PasswordResetView.as_view(
             form_class= EmailValidationOnForgotPassword,
             template_name= 'ResetPassword.html',
